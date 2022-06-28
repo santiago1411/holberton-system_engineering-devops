@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# displya listening ports
+netstat -lp
