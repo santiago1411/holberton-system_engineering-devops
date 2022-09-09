@@ -1,12 +1,8 @@
 #!/usr/bin/python3
-"""
-Export to JSON
-"""
-
+"""Export to JSON"""
 import json
 import requests
 from sys import argv
-
 
 
 if __name__ == "__main__":
@@ -17,6 +13,8 @@ if __name__ == "__main__":
 
     name = requests.get(users_url + id).json().get("username")
     task = requests.get(todos_url, params={"userId": id}).json()
+    total_task = requests.get(
+        todos_url, params={"userId": id, "completed": "true"}).json()
 
     with open(id + '.json', 'w') as outfile:
         json.dump({id: [{"task": tt.get("title"), "completed": tt.get(
