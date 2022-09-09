@@ -16,11 +16,8 @@ def top_ten(subreddit):
             Chrome/104.0.5112.102 Safari/537.36 OPR/90.0.4480.84'
     }
 
-    params = {
-        "limit": 10
-    }
     response = requests.get(url, headers=header,
-                            params=params, allow_redirects=False)
+                            params={"limit": 10}, allow_redirects=False)
     json_response = response.json()
 
     if response.status_code == 200:
