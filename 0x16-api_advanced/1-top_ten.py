@@ -14,7 +14,7 @@ def top_ten(subreddit):
             AppleWebKit/537.36 (KHTML, like Gecko) \
             Chrome/104.0.5112.102 Safari/537.36 OPR/90.0.4480.84'}
 
-    response = requests.get(url, headers=header, params={"limit": 10})
+    response = requests.get(url, headers=header, params={"limit": 10}, allow_redirects=False)
     json_response = response.json()
     
     if response.status_code == 200:
