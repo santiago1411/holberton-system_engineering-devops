@@ -15,7 +15,7 @@ if __name__ == "__main__":
     name = requests.get(users_url + id).json()
     task = requests.get(todos_url, params={"userId": id}).json()
     total_task = requests.get(
-        todos_url, params={"userId": id, "completed": "true"}).json()
+        todos_url, params={"completed": "true", "userId": id}).json()
 
     print("Employee {} is done with task({}/{}):"
           .format(name.get("name"), len(total_task), len(task)))
