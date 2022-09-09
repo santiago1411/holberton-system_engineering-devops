@@ -10,7 +10,7 @@ import requests
 
 def recurse(subreddit, hot_list=[], af=''):
     """Recursive function that queries Reddit API"""
-    
+
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     headers = {
         'User-agent':
@@ -18,7 +18,8 @@ def recurse(subreddit, hot_list=[], af=''):
         (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582'
     }
 
-    r = requests.get(url, headers=headers, params={"after": af}, allow_redirects=False)
+    r = requests.get(url, headers=headers,
+                     params={"after": af}, allow_redirects=False)
 
     if r.status_code == 404:
         return None
